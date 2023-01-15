@@ -1,4 +1,6 @@
 //home的router
+import formEditor from './formEditor'
+import sopEditor from './sopEditor'
 
 export default [
 	{
@@ -6,6 +8,14 @@ export default [
 		path: '/',
 		name: 'home',
 		component: () => import('@/pages/default/home/Home.vue'),
-		children: [],
+		children: [
+			{
+				path:"",
+				name:"homeView",
+				component: () => import('@/pages/default/home/HomeView.vue'),
+			},
+			...formEditor,
+			...sopEditor
+		],
 	},
 ]
